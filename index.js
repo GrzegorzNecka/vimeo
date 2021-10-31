@@ -1,10 +1,12 @@
 // Import stylesheets
+// import vimeo from 'vimeo';
 import './style.css';
 
 const movieConrainer = document.querySelector('.movie');
 const fireBtn = document.querySelector('.fire');
 const vimeoUrl = 'https://player.vimeo.com/video/634598330?h=cfe7c5fc07';
 
+let player = null;
 const createBtn = () => {
   const btn = document.createElement('button');
   btn.classList.add('close');
@@ -16,13 +18,13 @@ const createVimeo = () => {
   const ifrm = document.createElement('iframe');
   ifrm.setAttribute('src', vimeoUrl);
   ifrm.setAttribute('class', 'vimeo-introduction vimeo-introduction--active');
-
   movieConrainer.appendChild(ifrm);
   createBtn();
+  player = new Vimeo.Player(ifrm);
 };
 
 const movieIsOpen = () => {
-  document.querySelector('.vimeo-introduction--active');
+  return document.querySelector('.vimeo-introduction--active');
 };
 
 function visibleFrame() {
@@ -49,10 +51,9 @@ function hiddenFrame(e) {
 
   const vimeo = movieIsOpen();
 
-  vimeo.stop();
-
   if (vimeo) {
     vimeo.classList.remove('vimeo-introduction--active');
+    player.pause();
   }
 }
 
