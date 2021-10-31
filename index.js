@@ -5,7 +5,7 @@ import './style.css';
 const movieConrainer = document.querySelector('.movie');
 const fireBtn = document.querySelector('.fire');
 const vimeoUrl = 'https://player.vimeo.com/video/634598330?h=cfe7c5fc07';
-
+const vimeoOptions = `webkitallowfullscreen mozallowfullscreen allowfullscreen`;
 let player = null;
 const createBtn = () => {
   const btn = document.createElement('button');
@@ -17,6 +17,9 @@ const createBtn = () => {
 const createVimeo = () => {
   const ifrm = document.createElement('iframe');
   ifrm.setAttribute('src', vimeoUrl);
+  ifrm.setAttribute('width', '100%');
+  ifrm.setAttribute('height', '500px');
+  ifrm.setAttribute('frameborder', '0');
   ifrm.setAttribute('class', 'vimeo-introduction vimeo-introduction--active');
   movieConrainer.appendChild(ifrm);
   createBtn();
