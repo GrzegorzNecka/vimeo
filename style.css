@@ -1,0 +1,19 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+
+#background {
+  background-color: brown;
+  height: 500px;
+}
+
+.movie .vimeo-introduction,
+.movie .vimeo-introduction + .close {
+  display: none;
+}
+
+.movie .vimeo-introduction--active,
+.movie .vimeo-introduction--active + .close {
+  display: block;
+}
